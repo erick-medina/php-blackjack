@@ -1,31 +1,17 @@
-<?php
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blackjack PHP</title>
+</head>
 
-declare(strict_types = 1);
+<body>
+<style>
 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+</style>
+</body>
 
-class Blackjack {
-    public $hit;
-
-    public function set_hit() {
-        for ($i = 0; $i < 2; $i++) {
-            $value = $this-> hit = rand(1, 11);
-            $randArray[] = $value ;
-            var_dump($randArray);
-        }
-    }
-
-    function set_stand($stand) {
-
-    }
-    function set_surrender($surrender) {
-
-    }
-}
-$blackjack = new Blackjack();
-$blackjack -> set_hit();
-?>
-
-
+</html>
