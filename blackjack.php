@@ -9,6 +9,13 @@
 </head>
 
 <body>
+
+<button type="button" name="card_button">Get a random card!</button>
+<p>Card 1: <?php echo $blackjack -> set_hit(); ?></p>
+<p>Card 2: <?php echo $blackjack -> set_hit(); ?></p>
+
+
+
 <style>
 
 </style>

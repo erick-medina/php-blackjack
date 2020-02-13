@@ -10,11 +10,12 @@ class Blackjack {
     public $hit;
 
     public function set_hit() {
-        for ($i = 0; $i < 2; $i++) {
-            $value = $this-> hit = rand(1, 11);
-            $randArray[] = $value ;
-            var_dump($randArray);
+        $random_array = [];
+        for ($i = 0; $i < 1; $i++) {
+            $value = rand(1, 11);
+            array_push($random_array, $value);
         }
+        return implode($random_array);
     }
 
     function set_stand($stand) {
