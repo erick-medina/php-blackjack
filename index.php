@@ -22,15 +22,9 @@ $player = new Blackjack();
 </head>
 
 <body>
-<form method="post">
-    <button type="submit" name="start_button">START GAME!</button>
-    <button type="submit" name="hit_button">HIT!</button>
-    <button type="submit" name="stand_button">STAND!</button>
-    <button type="submit" name="surrender_button">SURRENDER!</button>
-</form>
 
 <?php
-
+$prod_qty = '1';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['start_button'])) { // click on start in order to get the 2 first cards
         $starting_game = $player->starting_game();
@@ -52,32 +46,82 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($_POST['hit_button'])) {
         $hit_turn = $player->set_hit($_SESSION['player_points']);
-        echo "Card number is : ". $hit_turn[0];
+        echo "Card given is : ". $hit_turn[0];
         $_SESSION['player_points'] = $hit_turn[1];
-        echo "Total: ". $hit_turn[1];
+        echo "</br> Total: ". $hit_turn[1];
+
+        if ($_SESSION['player_points'] > 21) {
+            echo '<h3></br>' . 'You lost! </h3>';
+        }
     }
 
     if (isset($_POST['stand_button'])) {
-
-        echo " the player total is : ". $_SESSION['player_points'];
+        $prod_qty = '0';
+        echo " Player's score is : ". $_SESSION['player_points'];
 
         $stand_turn = $player->set_hit($_SESSION['dealer_points']);
-        echo " <br/> the number is : ". $stand_turn[0];
+        echo " <br/> Card given is: ". $stand_turn[0];
         $_SESSION['dealer_points'] = $stand_turn[1];
-        echo " the total is : ". $stand_turn[1];
+        echo "</br> Dealer's score is: ". $stand_turn[1];
+
+        if ($_SESSION['dealer_points'] > 21) {
+            echo '<h3></br>' . 'You lost! </h3>';
+        }
     }
 
     if (isset($_POST['surrender_button'])) {
 
-        echo " the player total is : ". $_SESSION['player_points'];
-        echo " <br/> the dealer total is : ". $_SESSION['dealer_points'];
+        echo "Player's total is : ". $_SESSION['player_points'];
+        echo "<br/> Dealer's total is : ". $_SESSION['dealer_points'];
     }
 
 }
 
 ?>
+<form method="post">
+    <button type="submit" class="btn-1" name="start_button">START GAME!</button>
+    <button type="submit" class="btn-1" name="hit_button" <?php if ($prod_qty == '0'){ ?> disabled <?php  } ?> > HIT!</button>
+    <button type="submit" class="btn-1" name="stand_button">STAND!</button>
+    <button type="submit" class="btn-1" name="surrender_button">SURRENDER!</button>
+</form>
+
 
 </body>
+
+<style>
+    body {
+        background: url("https://ie1-gfebf.cdnppb.net/mexchangeblackjack/turbo/32/assets/gameView/tableBackground.png?v32");
+        color: aliceblue;
+        text-align: center;
+        font-size: 25px;
+    }
+    .btn-1 {
+        border: 1px solid #3498db;
+        background: none;
+        padding: 10px 20px;
+        font-size: 20px;
+        font-family: "DejaVu Sans";
+        cursor: pointer;
+        margin: 10px;
+        transition: 0.8s;
+        position: relative;
+        overflow: hidden;
+        color: #fff;
+
+    .btn-1:hover {
+        color: #fff;
+    }
+    .btn-1::before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 0%;
+        background: #3498db;
+        z-index: -1;
+        transition: 0.8s;
+    }
+    }
+</style>
 
 </html>
 

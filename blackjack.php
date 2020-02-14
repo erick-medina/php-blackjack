@@ -15,13 +15,13 @@ class Blackjack {
         $one_random_card = rand(1, 11);
         $this->score = $one_random_card + $current_score;
         //$_session['playerPoints'] +=  $one_random_card;
-        return [$one_random_card ,$this->score ];
+        return [$one_random_card ,$this->score];
     }
 
     public function set_stand($stand) {
 
+        }
     }
     function set_surrender($surrender) {
 
-    }
 }
