@@ -1,24 +1,27 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blackjack PHP</title>
-</head>
+<?php
+session_start();
+class Blackjack {
 
-<body>
+    public $score;
 
-<button type="button" name="card_button">Get a random card!</button>
-<p>Card 1: <?php echo $blackjack -> set_hit(); ?></p>
-<p>Card 2: <?php echo $blackjack -> set_hit(); ?></p>
+    public function starting_game() {
 
+        $card_one = rand(1, 11);
+        $card_two = rand(1, 11);
+        return [$card_one, $card_two];
+    }
 
+    public function set_hit($current_score) {
+        $one_random_card = rand(1, 11);
+        $this->score = $one_random_card + $current_score;
+        //$_session['playerPoints'] +=  $one_random_card;
+        return [$one_random_card ,$this->score ];
+    }
 
-<style>
+    public function set_stand($stand) {
 
-</style>
-</body>
+    }
+    function set_surrender($surrender) {
 
-</html>
+    }
+}
