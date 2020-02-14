@@ -73,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         echo "Player's total is : ". $_SESSION['player_points'];
         echo "<br/> Dealer's total is : ". $_SESSION['dealer_points'];
+        session_destroy(); // to reset all the sessions so a new game can be started
     }
 
 }
