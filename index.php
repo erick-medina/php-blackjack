@@ -75,10 +75,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<br/> Dealer's total is : ". $_SESSION['dealer_points'];
         session_destroy(); // to reset all the sessions so a new game can be started
     }
-
 }
 
 ?>
+
 <form method="post">
     <button type="submit" class="btn-1" name="start_button">START GAME!</button>
     <button type="submit" class="btn-1" name="hit_button" <?php if ($prod_qty == '0'){ ?> disabled <?php  } ?> > HIT!</button>
@@ -125,7 +125,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </style>
 
 </html>
-
-
-
-
